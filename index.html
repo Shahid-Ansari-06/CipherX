@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CipherX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-lock"></i></span>
+                    <span>CipherX</span>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="overlay" id="overlay"></div>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#encoder">Encoder</a></li>
+                        <li><a href="#decoder">Decoder</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="hero">
+            <h1>Secure Message Transformation</h1>
+            <p>Convert your messages into futuristic coded symbols or decode hidden messages with our advanced algorithms. Protect your communications with style.</p>
+        </section>
+        
+        <section id="encoder" class="cipher-box">
+            <div class="cipher-header">
+                <h2 class="cipher-title"><i class="fas fa-lock btn-icon"></i> Message Encoder</h2>
+                <div class="cipher-actions">
+                    <button class="btn btn-primary" id="encode-btn">
+                        <i class="fas fa-key btn-icon"></i> Encode
+                    </button>
+                    <button class="btn btn-secondary" id="copy-encoded">
+                        <i class="fas fa-copy btn-icon"></i> Copy
+                    </button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="original-message">Enter your message to encode:</label>
+                <textarea id="original-message" placeholder="Type your secret message here..."></textarea>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card active" data-cipher="symbol">
+                    <h3>Symbol Conversion</h3>
+                    <p>Convert letters to special symbols</p>
+                </div>
+                <div class="option-card" data-cipher="numeric">
+                    <h3>Numeric Cipher</h3>
+                    <p>Replace with numeric values</p>
+                </div>
+                <div class="option-card" data-cipher="binary">
+                    <h3>Binary Code</h3>
+                    <p>Convert to binary format</p>
+                </div>
+                <div class="option-card" data-cipher="hex">
+                    <h3>Hex Values</h3>
+                    <p>Hexadecimal representation</p>
+                </div>
+                <div class="option-card" data-cipher="custom" id="custom-cipher-btn">
+                    <h3>Custom Mapping</h3>
+                    <p>Create your own cipher</p>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="encoded-result">Encoded Message:</label>
+                <div class="result-box" id="encoded-result">Your encoded message will appear here...</div>
+            </div>
+        </section>
+        
+        <section id="decoder" class="cipher-box">
+            <div class="cipher-header">
+                <h2 class="cipher-title"><i class="fas fa-lock-open btn-icon"></i> Message Decoder</h2>
+                <div class="cipher-actions">
+                    <button class="btn btn-primary" id="decode-btn">
+                        <i class="fas fa-unlock btn-icon"></i> Decode
+                    </button>
+                    <button class="btn btn-secondary" id="copy-decoded">
+                        <i class="fas fa-copy btn-icon"></i> Copy
+                    </button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="encoded-message">Enter encoded message to decode:</label>
+                <textarea id="encoded-message" placeholder="Paste your encoded message here..."></textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="cipher-type">Select cipher type:</label>
+                <select id="cipher-type">
+                    <option value="symbol">Symbol Conversion</option>
+                    <option value="numeric">Numeric Cipher</option>
+                    <option value="binary">Binary Code</option>
+                    <option value="hex">Hex Values</option>
+                    <option value="custom">Custom Mapping</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="decoded-result">Decoded Message:</label>
+                <div class="result-box" id="decoded-result">Your decoded message will appear here...</div>
+            </div>
+        </section>
+        
+        <section id="features">
+            <h2 class="cipher-title" style="text-align: center; margin-bottom: 2rem;">Advanced Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon floating">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Military-Grade Security</h3>
+                    <p>Our encoding algorithms use advanced techniques to ensure your messages remain confidential and tamper-proof.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating" style="animation-delay: 0.5s;">
+                        <i class="fas fa-random"></i>
+                    </div>
+                    <h3>Multiple Cipher Options</h3>
+                    <p>Choose from various encoding styles including symbols, numbers, binary, and custom mapping for unique results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon floating" style="animation-delay: 1s;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Fully Responsive</h3>
+                    <p>Access your encoded messages from any device, anywhere. Our interface adapts perfectly to all screen sizes.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Custom Mapping Modal -->
+    <div class="modal" id="custom-mapping-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Custom Character Mapping</h3>
+                <button class="close-modal" id="close-modal">&times;</button>
+            </div>
+            <p>Define your own custom mapping for each character. Leave blank to keep original character.</p>
+            
+            <div class="custom-mapping-grid" id="custom-mapping-grid">
+                <!-- Generated by JavaScript -->
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="reset-mapping">
+                    <i class="fas fa-undo btn-icon"></i> Reset to Default
+                </button>
+                <button class="btn btn-primary" id="save-mapping">
+                    <i class="fas fa-save btn-icon"></i> Save Mapping
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CipherX</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">API Documentation</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 CipherX Technologies. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
